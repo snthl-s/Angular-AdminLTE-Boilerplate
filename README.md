@@ -28,4 +28,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Help on AdminLTE Template
 
-to get more help on the AdminLTE go check out the [AdminLTE website] https://adminlte.io/
+To get more help on the AdminLTE go check out the [AdminLTE Website](https://adminlte.io/).
