@@ -1,0 +1,42 @@
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">    
+                <b>Code</b>VU
+        </div>
+        <!-- /.login-logo -->
+    <div class="login-box-body">
+        <p class="login-box-msg">Sign in to start your session</p>
+        <form  [formGroup]='rForm' (ngSubmit)="login(rForm.value)">
+            <div class="form-group has-feedback col-md-13">
+                    <input type="text" class="form-control" formControlName='username'>
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback col-md-13" >
+                    <input type="password" class="form-control" formControlName='password'>
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="checkbox icheck" align='center'>
+                            <label>
+                                <input type="checkbox" formControlName='rememberme'> Remember Me
+                            </label>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" align='right' [disabled]="!rForm.valid" class="btn btn-primary btn-block btn-flat">Sign In</button>
+                    </div>
+                  <div align="center">  <label style="color:red" *ngIf='errMsg'>{{errMsg}}</label>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+
+          
+        </div>
+        <!-- /.login-box-body -->
+    </div>
+    <!-- /.login-box -->
+
+</body>

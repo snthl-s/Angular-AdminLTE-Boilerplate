@@ -1,0 +1,99 @@
+<div><a routerLink='/createClient' type="button" class="btn btn-primary btn-sm">Create New Client</a>
+<br/>&nbsp;<br/>
+</div>
+<div class='panel panel-primary'>
+
+ 
+<div class='panel-heading'>
+ 
+    {{pageTitle}}
+</div>
+
+<div class='panel-body'>
+
+
+  
+  <div class='row'>
+    <div class='col-md-2' ><b>Search By:</b> </div>
+    </div>
+<form class="container" [formGroup] = 'rForm' (ngSubmit) = "fetchData(rForm.value)">
+    <div class='row'>
+    
+      <div class='col-md-2' align='right'>
+    Client Name :
+    </div>
+
+    <div class='col-md-2'>
+
+      <input type='text' formControlName='listFilterclient'>  
+      </div>
+     
+    </div>
+<div class='row'>
+    <div class='col-md-2' align='right'>
+      *Client Description :
+    </div>
+<div class='col-md-2'>
+
+  <input type='text' formControlName='listFilterdescription' >
+</div>
+</div>
+<div class='row'>
+<div class='col-md-2'></div>
+<div class='col-md-5'>
+<ul>
+  <li style="color:grey">Please enter minimum 2 characters</li>
+  <li style="color:red" *ngIf="!rForm.controls['listFilterdescription'].valid && rForm.controls['listFilterdescription'].touched">
+    {{ titleAlert }}</li>
+</ul>
+</div>
+</div>
+
+<div class='row'>&nbsp;</div>
+<div class='row'>
+  <div class='col-md-2'></div>
+    <div class='col-md-2'>
+    <input type='submit' class="btn btn-primary" [disabled]="!rForm.valid" value='Search'/>
+    </div>
+</div>
+</form>
+
+
+</div>
+<div class='table-responsive' >
+  <table class='table' *ngIf='clients && clients.length'>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Client Name</th>
+            <th>Client Description</th>
+            <th>Image</th>
+            <th align="center">Delete</th>
+            <th align="center">Update</th>
+       </tr>
+
+    </thead>
+    <tbody>
+        <tr *ngFor='let client of clients;let i=index'>
+          <td>#{{ i + 1}}</td>
+          <td>{{client.CLIENT}}</td>
+          <td><a [routerLink] ="['/clients',client.id]"> {{client.DESCRIPTION | json}}</a></td>
+          <td>{{client.CLIENT_LOGO | json }}</td>
+          <td (click)='deleteClient(client.id)'>
+          
+            <a style='color:red' placement="top" ngbTooltip="Delete"  class='glyphicon glyphicon-trash'></a>
+          </td>
+          <td [routerLink]="['/updateClient', client.id]">
+            
+            <a style='color:blue' placement="top" ngbTooltip="Update" class='glyphicon glyphicon-pencil'></a>
+          </td>
+
+        </tr>
+
+    </tbody>
+
+  </table>
+
+
+</div>
+</div>

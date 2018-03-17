@@ -1,0 +1,17 @@
+<h2>
+  Update Product
+</h2>
+
+<p *ngIf="!exist">
+  Client doesn't exist
+</p>
+
+<form id="formNewClient" name="formNewProduct" #clientData="ngForm" (ngSubmit)="updateClient(clientData.value)">
+  <label>Client: </label>
+  <input type="text" name="name" id="name" placeholder="name" [(ngModel)]="data.CLIENT" ngModel>
+  <br>
+  <label>Description: </label>
+  <input type="text" name="color" id="color" [(ngModel)]="data.DESCRIPTION" placeholder="color" ngModel>
+  <br>
+  <input type="submit" value="Update Client">
+</form>

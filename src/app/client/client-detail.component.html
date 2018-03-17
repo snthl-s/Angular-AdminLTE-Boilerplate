@@ -1,0 +1,24 @@
+<div class='panel panel-primary' *ngIf='client'>
+
+
+  <div class='panel-heading'>
+
+    {{pageTitle}}
+  </div>
+
+  <div class='panel-body'>
+<ul>
+    <li>ID :</li> 
+    <li>Client Name : {{client.CLIENT}}</li>
+    <li>Client Description : {{client.DESCRIPTION}}</li>
+    <li>Image URL : {{client.CLIENT_LOGO}} </li>
+</ul>
+  
+  </div>
+
+  <div class='panel-footer'>
+  <a class='btn btn-default' (click)='onBack()' style='width:80px'>
+    <i class='glyphicon glyphicon-chevron-left'></i>Back
+  </a>
+  </div>
+  

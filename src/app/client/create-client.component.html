@@ -1,0 +1,61 @@
+
+
+
+    <div>
+      <a routerLink='/' type="button" class="btn btn-primary btn-sm">< Back </a>
+      <br/>&nbsp;
+      <br/>
+    </div>
+    <div class='panel panel-primary'>
+    
+    
+      <div class='panel-heading'>
+    
+        {{pageTitle}}
+      </div>
+    
+      <div class='panel-body'>
+    
+        <form id="formNewClient" name="formNewClient" #clientData="ngForm" (ngSubmit)="addNewClient(clientData.value)">
+          <div class='row'>
+            <div class='col-md-2' align='right'>
+              <b> Client : </b>
+            </div>
+          
+          <div class='col-md-2' >
+          
+            <input type="text" name="CLIENT" id="CLIENT" placeholder="Client Name" ngModel>
+          </div>
+          </div>
+          <br>
+          <div class='row'>
+            <div class='col-md-2' align='right'>
+              <b> Description : </b>
+            </div>
+          
+          <div class='col-md-2'>
+          <input type="text" name="DESCRIPTION" id="DESCRIPTION" placeholder="Description" ngModel>
+          </div>
+          </div>
+          <div class='row'>&nbsp;</div>
+          <div class='row'>
+            <div class='col-md-2'></div>
+            <div class='col-md-2'>
+              <input type="submit" class="btn btn-primary btn-sm" value="Add Client">
+            </div>
+          </div>
+
+        </form>
+        
+        <br>
+        <h3 class='alert alert-success' *ngIf="isAdded">
+          
+
+            {{confirmationString}}
+        
+        </h3>
+
+
+
+      </div>
+    </div>
